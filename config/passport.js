@@ -49,12 +49,12 @@ module.exports=  function(passport){
 
     passport.serializeUser(function(user, done) {
 
-    done(null, user);
+    done(null, user.id);
   
 });
 
 passport.deserializeUser(function(id, done) {
-User.findOne({  id: id  }).then (user =>{
+User.findById({ id  }).then (user =>{
   done(null, user);
 })
    

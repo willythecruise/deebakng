@@ -20,7 +20,7 @@ router.get('/', function(req, res, next) {
  router.get('/dashboard',ensureAuthenticated,async function (req,res) {
 
        const courses = await Enrol.find({
-   user : req.user , // Assuming req.user contains the user's ID
+   user: req.user
   });
       const allcourse = await Course.find();
 

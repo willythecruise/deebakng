@@ -3,20 +3,18 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var flash = require('connect-flash')
-var app = express();
-
 const session= require('express-session');
 const mongoose= require('mongoose')
+
+const passport = require('passport');
 const MongoStore = require('connect-mongo');
 // const SequelizeStore = require('connect-session-sequelize')(session.Store);
 // const Session = require('./models/session');
 // const sequelize= require('sequelize')
-const passport = require('passport');
-require('./config/passport')(passport);
+
 // require('dotenv').config()
 // const sequelize = require('./models/sequelize'); 
 
@@ -34,7 +32,11 @@ require('./config/passport')(passport);
 
 
 // Express session
+var app = express();
 
+
+
+require('./config/passport')(passport);
 
 require('dotenv').config()
 mongoose.connect(process.env.MONGO_URI).then(()=> console.log('mongodb connected'))
@@ -45,7 +47,7 @@ mongoose.connect(process.env.MONGO_URI).then(()=> console.log('mongodb connected
 
 // Express session
 app.use(session({
-secret: 'process.env.SECRET',
+secret: 'my-Secret',
 resave: true,
 saveUninitialized: true,
 store:  MongoStore.create({mongoUrl: process.env.MONGO_URI})

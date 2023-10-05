@@ -1,0 +1,42 @@
+
+
+     <%- include('./partials/navbar.ejs') %>
+    <div class="flex flex-col items-center">
+        <h1 class="p-4 m-4 sm:text-6xl text-3xl font-bold "> Welcome <%= name %></h1>
+        <% if ( enroledcourses ) { %>
+    <p class="text-xl text-center p-2"> You have enrolled in <%= enroledcourses.length %> Courses </p>
+     <%enroledcourses.forEach(course=> { %>
+    <%= course.course %>
+        <% }) %>
+
+        <% } %>
+
+
+    </div>
+<div class="flex flex-wrap items-center justify-start p-6 ">
+
+<% allcourses.forEach(element => { %>
+    <div
+  class="mt-2 sm:mx-2 block rounded-lg bg-white p-6  shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+  <h5
+    class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+    <%= element.name %>
+  </h5>
+  <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+    <%= element.price %>
+  </p>
+  <button
+    type="button"
+    class="inline-block rounded bg-blue-500 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+    data-te-ripple-init
+    data-te-ripple-color="light">
+   <a href="/enrol?course= <%= element.name %>&price= <%= element.price %>"  >Enrol</a>
+  </button>
+</div>
+<% }) %>
+</div>
+
+
+    
+</body>
+</html> 

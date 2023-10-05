@@ -1,0 +1,33 @@
+
+ <head>
+    <link rel="stylesheet" href="/stylesheets/style.css"type="text/css">
+ </head>
+      <%- include('./partials/navbar.ejs') %>
+ <div class="flex items-center flex-col h-screen justify-center">
+<form class="" method="post" action="/makepayment?amount=<%=price %>&course=<%= course%>" >
+        
+
+       <div class="bg-indigo-300 p-4 m-6">
+    <div class="container my-24 mx-auto md:px-6">
+  <!-- Section: Design Block -->
+  <section class="mb-32 text-center">
+    <div class="flex justify-center">
+      <div class="max-w-[800px]">
+        <h2 class="mb-12 text-white text-4xl font-bold tracking-tight md:text-6xl xl:text-7xl">
+         Are you sure you want to enrol in the <%=course %> course? <br />
+    
+        </h2>
+       <button class="bg-blue-500 p-3 " >ENROL</button>
+      </div>
+    </div>
+  </section>
+  <!-- Section: Design Block -->
+</div>
+   </div>    </form>
+
+ </div>
+ <%- include('./partials/footer.ejs')%>
+
+ </body>
+ 
+    

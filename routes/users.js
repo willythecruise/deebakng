@@ -87,8 +87,8 @@ router.post('/register',ensureGuest, body('username').isAlpha(),
   //   username: username,
   //   password: password,
   // });
-            newUser.save()
-            
+  //           newUser.save()
+
                         req.flash('success_msg','Success! You are now registered and can login')
             newUser.save().then(user => {
 
